@@ -4,6 +4,7 @@ import 'package:fake_store_app/presentation/screens/const/colors.dart';
 import 'package:fake_store_app/presentation/screens/const/string_length_fix.dart';
 import 'package:fake_store_app/presentation/screens/view_product_screen/view_product_screen.dart';
 import 'package:fake_store_app/presentation/screens/widgets/blank_spaces.dart';
+import 'package:fake_store_app/presentation/screens/widgets/store_button.dart';
 import 'package:fake_store_app/presentation/screens/widgets/text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,9 @@ class _AllProductsState extends State<AllProductScreen> {
                     {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return ViewProductScreen();
+                          return ViewProductScreen(
+                            snapshotData: fetchedSnapshotData,
+                          );
                         },
                       ));
                     }
@@ -82,17 +85,10 @@ class _AllProductsState extends State<AllProductScreen> {
                               "\$" + fetchedSnapshotData.price.toString(),
                               style: TextStyle22(fontWeight: FontWeight.bold),
                             ),
-                            trailing: Container(
-                              width: 30,
+                            trailing: StoreButton(
                               height: 30,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: secondaryColor),
-                              child: Center(
-                                  child: Text(
-                                "+",
-                                style: TextStyle22(color: Colors.white),
-                              )),
+                              width: 30,
+                              text: "+",
                             ),
                           )
                         ],
