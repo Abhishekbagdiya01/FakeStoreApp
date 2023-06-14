@@ -46,6 +46,7 @@ class _AllProductsState extends State<AllProductScreen> {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
                           return ViewProductScreen(
+                            index: index,
                             snapshotData: fetchedSnapshotData,
                           );
                         },
@@ -61,9 +62,12 @@ class _AllProductsState extends State<AllProductScreen> {
                           horizontal: 8, vertical: 4),
                       child: Column(
                         children: [
-                          Image.network(
-                            fetchedSnapshotData.image.toString(),
-                            height: 100,
+                          Hero(
+                            tag: index,
+                            child: Image.network(
+                              fetchedSnapshotData.image.toString(),
+                              height: 100,
+                            ),
                           ),
                           VerticalSpaceBox(height: 10),
                           Text(

@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import '../const/colors.dart';
 
 class ViewProductScreen extends StatelessWidget {
-  ViewProductScreen({required this.snapshotData});
+  ViewProductScreen({required this.snapshotData, required this.index});
   final snapshotData;
+  final index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,10 @@ class ViewProductScreen extends StatelessWidget {
         child: Column(
           children: [
             VerticalSpaceBox(height: 10),
-            Expanded(flex: 4, child: Image.network(snapshotData.image)),
+            Expanded(
+                flex: 4,
+                child:
+                    Hero(tag: index, child: Image.network(snapshotData.image))),
             VerticalSpaceBox(height: 10),
             Chip(
               label: Text(snapshotData.category),
@@ -66,7 +70,8 @@ class ViewProductScreen extends StatelessWidget {
             StoreButton(
                 text: "Add to cart",
                 height: 50,
-                width: MediaQuery.of(context).size.width * 0.8)
+                width: MediaQuery.of(context).size.width * 0.8),
+            VerticalSpaceBox(height: 10),
           ],
         ),
       ),
