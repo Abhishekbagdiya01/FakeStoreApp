@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
               // width: MediaQuery.of(context).size.width,
               child: TabBar(isScrollable: true, tabs: tabCat),
             ),
-            VerticalSpaceBox(height: 10),
+            VerticalSpaceBox(height: 20),
             Expanded(
                 child: TabBarView(children: [
               AllProductScreen(),
