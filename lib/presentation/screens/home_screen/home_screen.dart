@@ -1,3 +1,4 @@
+import 'package:fake_store_app/data/remote_data_source/api/apis.dart';
 import 'package:fake_store_app/presentation/screens/all_product_screen/all_product_screen.dart';
 import 'package:fake_store_app/presentation/screens/const/colors.dart';
 import 'package:flutter/material.dart';
@@ -68,11 +69,11 @@ class HomeScreen extends StatelessWidget {
             VerticalSpaceBox(height: 20),
             Expanded(
                 child: TabBarView(children: [
-              AllProductScreen(),
-              Text("electronics"),
-              Text("jewelery"),
-              Text("men's clothing"),
-              Text("women's clothing"),
+              AllProductScreen(url: allProductsURL),
+              AllProductScreen(url: catElectronicsURL),
+              AllProductScreen(url: catJewelryURL),
+              AllProductScreen(url: catMenClothingURL),
+              AllProductScreen(url: catWomenClothingURL),
             ]))
           ],
         ),

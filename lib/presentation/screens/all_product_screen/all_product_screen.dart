@@ -1,6 +1,5 @@
 import 'package:fake_store_app/data/remote_data_source/api/services.dart';
 import 'package:fake_store_app/data/remote_data_source/models/all_product_model.dart';
-import 'package:fake_store_app/presentation/screens/const/colors.dart';
 import 'package:fake_store_app/presentation/screens/const/string_length_fix.dart';
 import 'package:fake_store_app/presentation/screens/view_product_screen/view_product_screen.dart';
 import 'package:fake_store_app/presentation/screens/widgets/blank_spaces.dart';
@@ -8,9 +7,11 @@ import 'package:fake_store_app/presentation/screens/widgets/store_button.dart';
 import 'package:fake_store_app/presentation/screens/widgets/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class AllProductScreen extends StatefulWidget {
-  AllProductScreen({super.key});
+import '../../../data/remote_data_source/api/apis.dart';
 
+class AllProductScreen extends StatefulWidget {
+  AllProductScreen({required this.url});
+  String url;
   @override
   State<AllProductScreen> createState() => _AllProductsState();
 }
@@ -18,17 +19,12 @@ class AllProductScreen extends StatefulWidget {
 class _AllProductsState extends State<AllProductScreen> {
   @override
   late Future<List<AllProductModel>> arrProducts;
-  void initState() {
-    arrProducts = ApiServices().fetchAllProduct();
-
-    print(arrProducts);
-  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder(
-        future: ApiServices().fetchAllProduct(),
+        future: ApiServices().fetchAllProduct(widget.url),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return GridView.builder(
