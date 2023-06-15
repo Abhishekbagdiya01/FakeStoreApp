@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fake_store_app/data/remote_data_source/api/services.dart';
 import 'package:fake_store_app/data/remote_data_source/models/all_product_model.dart';
 import 'package:fake_store_app/presentation/screens/const/string_length_fix.dart';
@@ -60,8 +61,8 @@ class _AllProductsState extends State<AllProductScreen> {
                         children: [
                           Hero(
                             tag: index,
-                            child: Image.network(
-                              fetchedSnapshotData.image.toString(),
+                            child: CachedNetworkImage(
+                              imageUrl: fetchedSnapshotData.image.toString(),
                               height: 100,
                             ),
                           ),

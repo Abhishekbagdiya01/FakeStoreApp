@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fake_store_app/presentation/screens/widgets/blank_spaces.dart';
 import 'package:fake_store_app/presentation/screens/widgets/store_button.dart';
 import 'package:fake_store_app/presentation/screens/widgets/text_styles.dart';
@@ -36,8 +37,9 @@ class ViewProductScreen extends StatelessWidget {
             VerticalSpaceBox(height: 10),
             Expanded(
                 flex: 4,
-                child:
-                    Hero(tag: index, child: Image.network(snapshotData.image))),
+                child: Hero(
+                    tag: index,
+                    child: CachedNetworkImage(imageUrl: snapshotData.image))),
             VerticalSpaceBox(height: 10),
             Chip(
               label: Text(snapshotData.category),
