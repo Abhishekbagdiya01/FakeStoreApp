@@ -39,26 +39,13 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: backgroundWhiteColor,
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: backgroundWhiteColor,
-          elevation: 0,
-          title: Container(
-            height: 50,
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 216, 216, 216),
-                borderRadius: BorderRadius.circular(6)),
-            child: ListTile(
-              title: Text(
-                "Search for a product ",
-                style: TextStyle(
-                  color: textBlackColor.withOpacity(0.4),
-                ),
-              ),
-              trailing: Icon(Icons.search),
-            ),
-          ),
-        ),
+            centerTitle: true,
+            backgroundColor: backgroundWhiteColor,
+            elevation: 0,
+            title: Text(
+              "ShopKart",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
         body: Column(
           children: [
             VerticalSpaceBox(height: 10),

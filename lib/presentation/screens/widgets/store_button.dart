@@ -7,23 +7,28 @@ class StoreButton extends StatelessWidget {
     required this.text,
     required this.height,
     required this.width,
+    this.voidCallBack,
   });
-  
+
   String text;
   double height;
   double width;
+  VoidCallback? voidCallBack;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: secondaryColor),
-      child: Center(
-          child: Text(
-        text,
-        style: TextStyle22(color: Colors.white),
-      )),
+    return InkWell(
+      onTap: voidCallBack,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: secondaryColor),
+        child: Center(
+            child: Text(
+          text,
+          style: TextStyle22(color: Colors.white),
+        )),
+      ),
     );
   }
 }

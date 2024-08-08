@@ -70,6 +70,12 @@ class ViewProductScreen extends StatelessWidget {
             ),
             VerticalSpaceBox(height: 10),
             StoreButton(
+                voidCallBack: () {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: Colors.green,
+                      behavior: SnackBarBehavior.floating,
+                      content: Text("Product added to the cart")));
+                },
                 text: "Add to cart",
                 height: 50,
                 width: MediaQuery.of(context).size.width * 0.8),

@@ -30,7 +30,7 @@ class _AllProductsState extends State<AllProductScreen> {
           if (snapshot.hasData) {
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  mainAxisExtent: 300,
+                  mainAxisExtent: MediaQuery.sizeOf(context).height * 0.40,
                   maxCrossAxisExtent: 200,
                   mainAxisSpacing: 15,
                   crossAxisSpacing: 15),
